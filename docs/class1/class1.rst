@@ -1,26 +1,27 @@
-F5 Distributed Cloud: Foundations of Delivery & Security
+AI Data Delivery: Secure and Reliable Object Storage
 ========================================================
 
 Welcome
 -------
 
-In this lab, attendees will be introduced to the F5 Distributed Cloud Services platform.  Attendees will create proxy services for publishing and securing
-applications that are served by both public and private endpoints.
+In this lab, attendees will be introduced to using F5 BIG-IP as an intelligent Application Delivery Controller (ADC) 
+for S3-compatible object storage.  
 
 Objectives:
 ----------
 
-- Gain an understanding of deploying proxy services to securely deliver an application with a public endpoint
-- Gain an understanding of viewing telemetry data and utilizing it to tune WAAP policies
-- Gain an understanding of how to deploy a site for providing connectivity to a private endpoint
+- Implement high availability and efficient load distribution for an S3 cluster
+- Enforce fine-grained policy controls
+- Migrate S3 buckets to new object storage cluster
+- Route object storage traffic intelligently based on node and cluster health characteristics
 
 Lab & Tasks:
 ------------
 
 The next page (Introduction) will cover the lab environment, access, and lab variables. The lab will be using a shared AWS account where we have deployed the following resources:
 
-- NGINX webserver that is exposed to the Public internet ("Public Endpoint")
-- F5 Distributed Cloud site node that can be used to connect to AWS VPC (network)
+- BIG-IP VE (LTM provisioned)
+- MinIO Clusters
 - NGINX webserver that only has a private IP address with no external access
 
 During the lab exercises we will explore different methods of protecting and exposing applications/webserver

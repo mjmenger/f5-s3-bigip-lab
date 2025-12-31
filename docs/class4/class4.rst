@@ -1,48 +1,40 @@
-F5 Distributed Cloud: Discovering & Securing API's
-==================================================
+F5 Distributed Cloud: Security Automation & Zero Day Mitigation
+===============================================================
 
 Welcome
 -------
 
-In this lab, participants will explore the depths of F5 Web Application
-and API Protection (WAAP) within F5 Distributed Cloud. Dive headfirst into
-the cutting-edge world of API Discovery, uncovering what’s within, Sensitive Data
-and Authentication State detection. Get hands-on experience as you unleash
-the power of API Protection and API Rate Limiting.
+In this lab, attendees will take a deeper dive into F5 Service Policies and Rate Limiting to provide application security.
+Attendees will review Security Policy Frameworks, exercise configuration options, review security events
+and perform hands-on configurations. Attendees will also explore rate limiting deployment configurations.  
 
-Objective:
-----------
+**Narrative:** 
+During the lab you will be playing the role of an Engineer at ACME Corp who is part of a team focused on building a zero trust
+security framework through automation.  ACME Corp has concerns about zero-day attacks and are looking at a 
+zero-trust program to ensure least privileged access while working to ensure low user friction.
 
--  Gain a deeper understanding of key F5 Distributed Cloud security functions and controls
+**Goal:**
+Implement and operate an application security environment utilizing F5 SaaS-Powered Distributed Cloud core security tooling. 
 
--  Explore securing APIs through API Discovery and Protection, along with other controls within F5 Distributed Cloud
+- Leverage F5 Distributed Cloud to enforce segmentation strategies at the edge to decrease
+  attack surface
 
-   -  **API Discovery**: Provided via machine-based learning processes, enables visualization of the API Framework,
-      assesses use of end-points, discovers new end-points based on flows, identifies use of sensitive information,
-      and enables swagger file export.
+- Demonstrate the use of Service Policy frameworks for both negative and positive security models
 
-   -  **API Protection**: Encompasses a set of definitions and controls to protect and secure the functions, use and
-      endpoints of the delivered API's framework.
+- Utilize core solutions of Service Policies (geo/ip filtering, ip reputation filtering)
 
-   -  **Web Applcation Firewall**: Behaves as an intermediate proxy to inspect app requests and responses to block and mitigate a broad spectrum of risks via signatures and robust behavioral-based threat detection to protect applications wherever they are deployed.
+- Explore advanced Service Policy design using more extensive matching criteria (“custom rules”) to mitigate Zero-day 
+  and automating those mitigations (speed to deploy Zero day) 
 
-   -  **Rate Limting**:  Defines parameters that can be used for fine-grained control over requests for a HTTP load-balancer that are subjected to rate-limiting using AI/ML learning engine to uniquely discover API endpoints used during service-to-service communication.
 
-   -  **Malicious User Detection**: Provided via machine-based learning processes, enables malicious user behavior tracking by categorizing users into varying threat levels, allowing automatic or manual mitigation.
-
-Lab & Tasks:
-------------
-
--  All Lab requirements will be noted in the tasks that follow
-
--  Estimated completion time: 6 Labs approximately 8-10 minutes each
+This Lab uses the **[AppWorld] F5XC Security Base Lab** UDF Blueprint.
 
 .. toctree::
    :maxdepth: 2
    :caption: Labs:
    :glob:
-
+   
    intro*
    lab*
    close*
-
+   

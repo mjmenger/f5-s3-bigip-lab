@@ -1,11 +1,55 @@
 Introduction: Accessing F5 Distributed Cloud Console
 ====================================================
 
-Welcome to this F5 Distributed Cloud Lab. The following tasks will guide you through the initial 
-access requirements for the associated lab environment.  Lab attendees should have received an 
-invitation email to the lab environment based on the submitted registration email.  Please check 
-email and spam folders if it has not been received.  If you have not received an email, please 
-contact a member of the lab team.
+**Narrative:**
+
+Congratulations! You are a Network Security Engineer at ACME Corp. 
+
+ACME has an Application Team that supports internally developed traditional and 
+modern apps, vendor provided and SaaS applications. As security threats are becoming 
+more prevalant, the ACME's Risk and Compliance organization has mandated that a segmentation program
+be configured as part of the organizations larger zero-trust program.  ACME Corp would like to implement
+segmentation strategies to reduce their attack surface and enable faster response against zero-day attacks. 
+
+As the Network Security Engineer, you are tasked with evaluating how to securely 
+extend segmentation controls out to the internet edge. At first you consider 
+the traditional methods of deploying and managing your native ACLs and geo-blocks in the Data Center, AWS, Azure, 
+GCP but quickly realize that learning and managing multiple segmentation technologies would be time-consuming 
+and difficult to operate.
+
+You recently saw a post on LinkedIn about a F5 SaaS product claiming to solve multi-cloud 
+appplication security complexities. Given your current timeline and industry knowledge of F5 being a 
+leader for decades, you decide to check it out and end up in the chair you are sitting in today: 
+Taking a first-hand look at how F5 makes automating security controls for segmentation and zero-day attacks 
+simple, quick to deploy, and secure. 
+
+
+
+
+Task 1: Lab Environment
+~~~~~~~~~~~~~~~~~~~~~~~
+
++----------------------------------------------------------------------------------------------+
+| The image below represents an overview of the lab environment. F5 Distributed Cloud Services |
+|                                                                                              |
+| will be configured as a SaaS Edge delivery and security service tier to a publicly hosted web|
+|                                                                                              |
+| application. The key elements lab attendees will interact with are as follows:               |
+|                                                                                              |
+| * **F5 Distributed Cloud Console**                                                           |
+| * **F5 Distributed Cloud Global Network / Application Delivery Network (ADN)**               |
+| * **Publicly hosted application (Public Cloud)**                                             |
++----------------------------------------------------------------------------------------------+
+| |intro000|                                                                                   |
++----------------------------------------------------------------------------------------------+
+
+Task 2: Accessing F5 Distributed Cloud Console
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following tasks will guide you through the initial access requirements for the associated lab environment.  
+Lab attendees should have received an invitation email to the lab environment based on the submitted 
+registration email.  Please check email and spam folders if it has not been received.  If you have 
+not received an email, please contact a member of the lab team.
  
 F5 Distributed Cloud Console, where this lab will be conducted, is a SaaS control-plane for 
 services that provides a UI and API for managing network, security, and compute services. The F5
@@ -150,6 +194,8 @@ Accessing F5 Distributed Cloud
 | |labbgn|                                                                                     |
 +----------------------------------------------------------------------------------------------+
 
+.. |intro000| image:: _static/intro-000.png
+   :width: 800px
 .. |intro001| image:: _static/intro-01.png
    :width: 800px
 .. |intro002| image:: _static/intro-02.png

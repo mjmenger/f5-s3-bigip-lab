@@ -1,209 +1,260 @@
-Lab 2: API Inventory
-=============================
+Lab 2: Enabling Positive Application Security with Service Policies 
+===================================================================
 
-**Scenario**
+**Objective:**
 
-There was an update to Customer Lookup controller, a new endpoint "getbyheroname" was added, allowing the lookup 
-of a customer's secret identify. However, this endpoint was not intended for release and was not approved for production.
+* Using console data, build a positive application security model
 
-We need to ensure that unapproved endpoints cannot be consumed, both now and in the future.
+**Narrative:** 
 
-**Expected Lab Time: 15 minutes**
+After building a negative enforcement model, ACME Corp's security team would like to further
+increase the security posture of the environment.  Instead of having an "allow-all" rule, the Security team
+has tasked you to build a "deny-all" rule to further close down down the attack surface of the application
+and more narrowly define the segement of users allowed to access the application. Your goal is to build
+this new postive security model on a single application so it does not affect access to other applications 
+in the F5 Distributed Cloud Tenant.
 
-.. note ::
+**Expected Lab Time: 20 minutes**
 
-   This lab uses a pre-build shared API Definition. Refer to `Lab 2 Advanced <adv_lab2.html>`_ for additional step on how to download and upload a swagger 
-   file and create a API Definition using the newly created OpenAPI file.
+Task 1: Reviewing Current Access Trends  
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Task 1: Simulate Allowed Access to a Shadow API
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. Return to the F5 Distributed Cloud Console - **Web Application & API Protection > Overview > Performance** 
+   Dashboard.
 
-#. Using another browser tab, navigate to the the following URL.
+#. Scroll down and select the load balancer.
 
-   ``http://<namespace>.lab-sec.f5demos.com/swagger``
+#. Update the variable time filter. 
 
-   .. image:: _static/shared-swagger-intro.png
-      :width: 800px
+#. Using the horizontal navigation, click **Requests**.  
 
-#. In the Demo Bank API app, navigate to the **/api/customerlookup/getbyheroname** endpoint, expand it, and click **Try it out**.
+   |lab001|
 
-   .. image:: _static/lab2-swagger-try.png
-      :width: 800px
+#. Expand one of the requests. Record the Client IP address, Country and ASN. This information will help you build
+   a positive enforcement service policy.
 
-   .. note ::
+   |lab002|
 
-      The 'getbyheroname' is a shadow API endpoint that is not approved for use. 
-      A shadow API refers to an undocumented or unintended API endpoint that exists alongside officially supported APIs, often posing security or operational risks due to lack of visibility or management.
+#. You can also leverage the AI Assistant to provide you a summary of the request.  
 
+   |lab003|
 
-#. Enter 'Iron Man' in the "heroname" field.. Click **Execute**.
+Task 2: Create A Deny-All Enforcement Service Policy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In this task you will modify the HTTP load balancer to utilize a new set of service policies.
 
-   .. image:: _static/lab2-swagger-execute.png
-      :width: 800px
+#. Under Manage, click **Load Balancers > HTTP Load Balancers**.
 
-#. Review the response body. It returns the customer information.
+   |lab004|
 
-   .. image:: _static/lab2-swagger-response.png
-      :width: 800px
+#. Select the Action dropdown and click **Manage Configuration**.
 
-   .. note ::
+   |lab005|
 
-      In the next steps, we will address this issue by blocking access to the shadow API endpoints. 
+#. Select **Common Security Controls** on the left-hand menu.  Click **Edit Configuration** in the upper right-hand corner. 
 
-Task 2: API Definition
-~~~~~~~~~~~~~~~~~~~~~~
+   |lab006|
 
-In this task's series of steps you will create a API Definition using a shared OpenAPI object.
+#. Select the dropdown for **Service Policies** and change from the namespace option to select **Apply Specified Service Policies**.
 
-#. In the left-hand navigation of the **Web App & API Protection** service under **Manage**, mouse over **API Security** and click on **API Definition** from the slide out.
+#. Click **Configure** to setup the new Service Policies.  
 
-   .. image:: _static/lab2-def-apidef.png
-      :width: 700px
+   |lab007|
 
-#. In the resulting **API Definition** window, click **Add API Definition** in the main
-   window area as shown.
+   |lab008|
 
-   .. image:: _static/lab2-def-add.png
-      :width: 650px
+#. For the **FIRST** ordered policy, select the drop down and click **Add Item**
 
-#. In the resulting **New API Definition** window, input **demobank-api-def**
-   for the **Name** under the **Metadata** section.
+   |lab009|
 
-#. In the **OpenAPI Specification Files** section, click **Add Item**.
+#. Name the policy **deny-all**.  Click the dropdown for *Select Policy Rules* and select **Deny All Requests**.  Click **Continue**
+   when completed.
 
+   |lab010|
 
-   .. image:: _static/lab2-def-additem.png
-      :width: 800px
+#. Click **Apply** to update the Service Policy to be applied specifically to this Application.
 
-#. Select a Shared OpenAPI file. It will be in the format **shared/api-lab-swagger/v1-25-01-31**.
+   |lab011|
 
-   .. image:: _static/lab2-def-select-shared.png
-      :width: 800px
+#. Scroll down and click **Save and Exit**. 
 
-#. Once selected, click **Save and Exit** in the bottom-right corner.
+   |lab012|
 
-   .. image:: _static/lab2-def-save-shared.png
-      :width: 800px
+#. Browse to the ACME Corp application at *<namespace>.lab-sec.f5demos.com*.  You should see a 403 Forbidden Error.  Copy the Support ID.
 
-Task 3: Enabling API Inventory
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   |lab013|
 
-In this task's series of steps you will enable the API Inventory and Discovery feature on the
-previously built Load Balancer.
+#. Let's use the F5 Distributed Cloud AI Assistant to determine if it matched the correct policy.  Return to the F5 Distributed 
+   Cloud console.  Click the AI Assistant icon in the upper-right hand corner. 
 
-#. In the left-hand navigation of the **Web App & API Protection** service, click on **Load Balancers > HTTP Load**
-   **Balancers** under the **Manage** section.
+   |lab014|
 
-#. In the resulting **Load Balancers** window, click on the three dots **...** in the
-   **Action** column, and the select **Manage Configuration**.
+#. By clicking into the prompt, AI Assistant will prompt with some suggested natural language queries.  Select *Explain security 
+   event [request-id]*
 
-   .. image:: _static/shared-103.png
-      :width: 800px
+#. Be sure to edit the prompt with the support ID from your block page.  The support ID is equivalent to the request id.
 
-#. Click **Edit Configuration** in the top-right corner.
+#. The AI Assistant will confirm that we did match the **deny-all** rule and denied our request.  Minimize the AI Assistant
+   
+   |lab015|
 
-   .. image:: _static/shared-104.png
-      :width: 800px
+   |lab016|
 
-#. Click **API Protection** in the left-hand navigation.
+   |lab017|
 
-#. In the **API Protection** section, click the drop-down arrow next to **API Definition**
-   and select **Enable**.
+Task 3: Create specific rules define allowed traffic for positive enforcement
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   .. image:: _static/lab2-lb-def-enable.png
-      :width: 800px
+#. Return back to the HTTP Load Balancer page to Manage the Configuration of our application.
 
-#. In the second **API Definition** section, click the drop-down arrow and select the
-   pre-created API Definition **<namespace>/demobank-api-def**.
+   |lab018|
 
-   .. image:: _static/lab2-lb-def-select.png
-      :width: 800px
+#. Click to **Common Security Controls** and **Edit Configuration**.
 
-#. Under **Validation**, select **API Inventory** from drop-down then click on
-   **View Configuration**
+   |lab019|
 
-   .. image:: _static/lab2-lb-def-validation.png
-      :width: 800px
+#. Under Service Policies, click **View Configuration**.
 
-   .. image:: _static/lab2-lb-def-validation-config.png
-      :width: 800px
+   |lab020|
 
-#. Within **API Inventory validation**, under **Fall Through Mode** update the drop-down
-   to **Custom**.
+#. Click **Edit Configuration** in the top right hand corner to add new policies.
 
-   .. image:: _static/lab2-lb-def-validation-fall-through.png
-      :width: 800px
+   |lab021|
 
-#. Within **Custom Fall Through Rule List** , click on **Configure**.
+#. Click **Add Item** to add a new policy.  This will add a new row in our policies to evaluate.
 
-   .. image:: _static/lab2-lb-def-validation-fall-through-config.png
-      :width: 800px
+   |lab022|
 
-#. In the **Custom Fall Through Rule List** section, click on **Add item**.
+#. Click the dropdown in policy row 2 and click **Add Item**
 
-   .. image:: _static/lab2-lb-def-fall-through-add.png
-      :width: 800px
+   |lab023|
 
-#. Update the fields with the below detail, click on **Apply**.
+#. Name the policy **allow-geo** and change the *Select Policy Rules* to **Allowed Sources**
 
-   * **Name:**  ``fall-through``
-   * **Action:** ``Block``
-   * **Type:** ``Base Path``
-   * **Base Path:** ``/api``
+   |lab024|
 
-   .. image:: _static/lab2-lb-def-fall-through-apply.png
-      :width: 800px
+#. Scroll down to the Country List and select the country that matches your client.  This information was gathered in Task 1.  Click 
+   **Continue**.
 
-#. Review the **Custom Fall Through Rule List**, click **Apply**.
+   |lab025|
 
-   .. image:: _static/lab2-lb-def-fall-through-review.png
-      :width: 800px
+#. Click **Apply**.
 
-#. Review the **API Inventory validation**, click **Apply**.
+   |lab026|
 
-   .. image:: _static/lab2-lb-def-validation-apply.png
-      :width: 800px
+#. Click **Save and Exit**.
 
-#. Select **Other Settings** on the left then click on **Save and Exit**
-   at the bottom right of window.
+   |lab027|
 
-   .. image:: _static/shared-lb-save.png
-      :width: 800px
+#. Browse to the ACME Corp application at *<namespace>.lab-sec.f5demos.com*.  Why are you seeing a 403 error?  Service Policies are enforced based on 
+   the order of their rules.  
 
-Task 4: Simulate Blocked Access to a Shadow API
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. Lets return to the specific Service Policy applied to the HTTP load balancer.  Note the order of the Service Policies.  The deny-all policy is
+   listed first.   Service Policies must be ordered correctly in a order to process traffic as intended.
 
-#. Using another browser tab, navigate to the the following URL.
+   |lab028|
 
-   ``http://<namespace>.lab-sec.f5demos.com/swagger``
+#. Click the Actions menu under the deny-all rule.  Select **Move to another spot**.
 
-   .. image:: _static/shared-swagger-intro.png
-      :width: 800px
+#. Use the arrows to update the *deny-all* rule to move to row 2.  Click **Move Row** when complete.
 
-#. In the Demo Bank API app, navigate to the **/api/customerlookup/getbyheroname** endpoint, expand it, and click **Try it out**.
+#. Click **Apply**.
 
-   .. image:: _static/lab2-swagger-try.png
-      :width: 800px
+   |lab029|
 
-#. Enter 'Iron Man' in the "heroname" field.. Click **Execute**.
+   |lab030|
 
-   .. note ::
+   |lab031|
 
-      Press **Execute** a couple extra times to create more events which will be reviewed in a later lab.
+#. Click **Save and Exit**.
 
-   .. image:: _static/lab2-swagger-execute.png
-      :width: 800px
+#. Browse to the ACME Corp application at *<namespace>.lab-sec.f5demos.com*.  Access should be restored.
 
-#. Review the response body. 
+   |lab032|
 
-   .. image:: _static/lab2-swagger-response-403.png
-      :width: 800px
+   |lab033|
 
-   .. note ::
+Narrative Check
+-----------------
+You have now created a positive security model for your application.  F5 Distributed Cloud allows users to 
+specifically bypass the Fiji blocking namespace security model from Lab 1 to apply service policies specifically
+to the HTTP load balancer.  In this positive enforcement model, you created a policy to allow based on geo-location but
+service policies can also be used to allow based on IP addresses, BGP ASNs, user-agents, and custom headers.  
 
-      You should now be blocked from accessing the 'getbyheroname' API endpoint, as it is a shadow API, an undocumented and unapproved endpoint.
++----------------------------------------------------------------------------------------------+
+| **End of Lab 2:**  This concludes Lab 2, feel free to review and test the configuration.     |
+|                                                                                              |
+| A brief presentation will be shared prior to the beginning of Lab 3.                         |
++----------------------------------------------------------------------------------------------+
+| |labend|                                                                                     |
++----------------------------------------------------------------------------------------------+
 
-**End of Lab**
-
-.. image:: _static/labend.png
+.. |lab001| image:: _static/lab2-001.png
    :width: 800px
+.. |lab002| image:: _static/lab2-002.png
+   :width: 800px
+.. |lab003| image:: _static/lab2-003.png
+   :width: 800px
+.. |lab004| image:: _static/lab2-004.png
+   :width: 800px
+.. |lab005| image:: _static/lab2-005.png
+   :width: 800px
+.. |lab006| image:: _static/lab2-006.png
+   :width: 800px
+.. |lab007| image:: _static/lab2-007.png
+   :width: 800px
+.. |lab008| image:: _static/lab2-008.png
+   :width: 800px
+.. |lab009| image:: _static/lab2-009.png
+   :width: 800px
+.. |lab010| image:: _static/lab2-010.png
+   :width: 800px
+.. |lab011| image:: _static/lab2-011.png
+   :width: 800px
+.. |lab012| image:: _static/lab2-012.png
+   :width: 800px
+.. |lab013| image:: _static/lab2-013.png
+   :width: 800px
+.. |lab014| image:: _static/lab2-014.png
+   :width: 800px
+.. |lab015| image:: _static/lab2-015.png
+   :width: 800px
+.. |lab016| image:: _static/lab2-016.png
+   :width: 800px
+.. |lab017| image:: _static/lab2-017.png
+   :width: 800px
+.. |lab018| image:: _static/lab2-018.png
+   :width: 800px
+.. |lab019| image:: _static/lab2-019.png
+   :width: 800px
+.. |lab020| image:: _static/lab2-020.png
+   :width: 800px
+.. |lab021| image:: _static/lab2-021.png
+   :width: 800px
+.. |lab022| image:: _static/lab2-022.png
+   :width: 800px
+.. |lab023| image:: _static/lab2-023.png
+   :width: 800px
+.. |lab024| image:: _static/lab2-024.png
+   :width: 800px
+.. |lab025| image:: _static/lab2-025.png
+   :width: 800px
+.. |lab026| image:: _static/lab2-026.png
+   :width: 800px
+.. |lab027| image:: _static/lab2-027.png
+   :width: 800px
+.. |lab028| image:: _static/lab2-028.png
+   :width: 800px
+.. |lab029| image:: _static/lab2-029.png
+   :width: 800px
+.. |lab030| image:: _static/lab2-030.png
+   :width: 800px
+.. |lab031| image:: _static/lab2-031.png
+   :width: 800px
+.. |lab032| image:: _static/lab2-032.png
+   :width: 800px
+.. |lab033| image:: _static/lab2-033.png
+   :width: 800px
+.. |labend| image:: _static/labend.png
+   :width: 800px
+      

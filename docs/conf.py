@@ -13,10 +13,10 @@ import f5_sphinx_theme
 # ------------
 #
 # REQUIRED: Your class/lab name
-classname = "F5 Distributed Cloud"
+classname = "Optimize and Secure AI Data Delivery with F5 BIG-IP for S3-Compatible Object Storage"
 
 # OPTIONAL: The URL to the GitHub Repository for this class
-github_repo = "https://github.com/f5devcentral/f5-agility-labs-xc"
+github_repo = "https://github.com/mjemnger/f5-s3-bigip-lab"
 
 #
 # END CONFIG
