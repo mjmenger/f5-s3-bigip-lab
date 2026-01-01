@@ -1,5 +1,5 @@
 
-Lab 2: Deploying F5 Distributed Cloud Proxy Services to Securely Deliver a Private Endpoint via Regional Edges
+Lab 2: Fine-grained Policy Enforcement & Bucket Migration
 ====================================
 
 Your company is about to launch a new application that resides in a public cloud environment.  To avoid having to learn 

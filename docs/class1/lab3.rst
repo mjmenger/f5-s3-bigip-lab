@@ -1,5 +1,5 @@
 
-Lab 3: Protecting a Private Endpoint
+Lab 3: Cluster Health Monitoring with Read/Write Quorum
 ====================================
 
 The application development team is hard at work at your company and recently deployed an application in AWS.  

@@ -1,16 +1,12 @@
-Introduction: Accessing F5 Distributed Cloud Console
+Introduction: Accessing F5 S3 BIG-IP Lab Environment
 ====================================================
 
-Welcome to this F5 Distributed Cloud Lab. The following tasks will guide you through the initial 
-access requirements for the associated lab environment.  Lab attendees should have received an 
-invitation email to the lab environment based on the submitted registration email.  Please check 
-email and spam folders if it has not been received.  If you have not received an email, please 
-contact a member of the lab team.
- 
-F5 Distributed Cloud Console, where this lab will be conducted, is a SaaS control-plane for 
-services that provides a UI and API for managing network, security, and compute services. The F5
-Distributed Cloud Console can manage "sites" in existing on-premises data centers and sites in
-AWS, Azure, and GCP cloud environments.
+Modern AI and data-intensive applications depend on fast, reliable access to S3-compatible storage. While
+object stores like MinIO scale horizontally, apps frequently couple themselves tightly to individual storage
+endpoints. This creates brittle deployments, uneven utilization, and high operational overhead.
+F5 BIG-IP Local Traffic Manager (LTM) solves this challenge by providing a single, resilient abstracted
+endpoint for S3 data delivery. With BIG-IP, applications connect to one virtual IP, while traffic is intelligently
+distributed across one or more clusters, governed by policies, and protected by health monitoring.
 
 
 Course/Lab Invitation
@@ -74,7 +70,7 @@ Accessing UDF (F5 Unified Demo Framework)
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
-| The Lab environment window will now be displayed.  Click on the **Deployment** tab in the |
+| The Lab environment window will now be displayed.  Click on the **Deployment** tab in the    |
 | horizontal navigation links.  Locate and observe the state of **Client** system.             |
 |                                                                                              |
 | In approximately 5-7 minutes the associated **yellow gear** starting icon will change to a   |
@@ -89,102 +85,6 @@ Accessing UDF (F5 Unified Demo Framework)
 | |intro009|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
-Accessing F5 Distributed Cloud
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-+----------------------------------------------------------------------------------------------+
-| Following the state change of the **Client System** to a **green arrow** (running) icon,     |
-| attendees will receive a second email.  This email will come from no-reply@cloud.f5.com.     |
-| Click the **Accept invitation** with in the email.                                           |
-|                                                                                              |
-| .. note::                                                                                    |
-|    *This link should be accessed in the same browser session as UDF was accessed for*        |
-|    *seamless experience.*                                                                    |
-|                                                                                              |
-| .. warning::                                                                                 |
-|    *Attendess should not attempt access to F5 Distributed Cloud tenant prior to receiving*   |
-|    *email. Lab permissions may need to be re-applied.*                                       |
-+----------------------------------------------------------------------------------------------+
-| |intro010|                                                                                   |
-+----------------------------------------------------------------------------------------------+
-
-+----------------------------------------------------------------------------------------------+
-| The initial logon prompt will be presented.  Click **Sign on with Okta** to proceed.  SSO    |
-| will process and onboarding to the tenant will proceed.                                      |
-+----------------------------------------------------------------------------------------------+
-| |intro011|                                                                                   |
-+----------------------------------------------------------------------------------------------+
-
-+----------------------------------------------------------------------------------------------+
-| Next the **Terms of Service and Privacy Policy** will display, check the box and then click  |
-| **Accept and Agree**.                                                                        |
-|                                                                                              |
-| In the following screen, Select all persona roles and click **Next**. This allows attendees  |
-| to see all the various configurations. Personas can be changed anytime later within the      |
-| console if desired.                                                                          |
-|                                                                                              |
-| In the next screen, click **Advanced** to expose more menu options and then **Get Started**  |
-| to begin. You can change this setting after logging in as well.                              |
-|                                                                                              |
-| .. note::                                                                                    |
-|    *Several Guidance ToolTips or Notices may appear.  Attendees can safely close these out*  |
-|    *in order to begin the lab.*                                                              |
-+----------------------------------------------------------------------------------------------+
-| |intro012|                                                                                   |
-|                                                                                              |
-| |intro013|                                                                                   |
-|                                                                                              |
-| |intro014|                                                                                   |
-+----------------------------------------------------------------------------------------------+
-
-+----------------------------------------------------------------------------------------------+
-| Attendees will now be presented the Home page of the F5 Distributed Cloud Console with all   |
-| the workspaces, features and services available.                                             |
-+----------------------------------------------------------------------------------------------+
-| |intro015|                                                                                   |
-+----------------------------------------------------------------------------------------------+
-
-+----------------------------------------------------------------------------------------------+
-| You can adjust your work domains and skill level (not required) by clicking on the           |
-| **Account** icon in the top right of the screen and then clicking on **Account Settings**.   |
-|                                                                                              |
-| In the resulting window you can observe the **Work domains and skill level** section and     |
-| other administrative functions.                                                              |
-|                                                                                              |
-| .. note::                                                                                    |
-|    *For the purposes of this lab, permissions have been restricted to lab operations.  As*   |
-|    *some menus will be locked and not visible.*                                              |
-+----------------------------------------------------------------------------------------------+
-| |intro050|                                                                                   |
-|                                                                                              |
-| |intro051|                                                                                   |
-+----------------------------------------------------------------------------------------------+
-
-+----------------------------------------------------------------------------------------------+
-| Namespaces, which provide an environment for isolating configured applications or            |
-| enforcing role-based access controls, are leveraged within the F5 Distributed Cloud          |
-| Console.  For the purposes of this lab, each lab attendee has been provided a unique         |
-| **namespace** which you should be defaulted to (in terms of GUI navigation) for all tasks    |
-| performed through the course of this lab.                                                    |
-|                                                                                              |
-| Click on the **Select Workspace** in the left-hand navigation. In the resulting fly out      |
-| navigation, click **Web App & API Protection**.                                              |
-|                                                                                              |
-| In the **Web App & API Protection** workspace screen observe the URL. In the lefthand        |
-| menu, confirm that your unique namespace is selected, if not, choose it, and then look       |
-| at the URL path, locate the **<adjective-animal>** namespace that you have been              |
-| assigned. It will be located in the portion of the URL path between */namespaces/* and       |
-| */overview/* as shown in this example **…/namespaces/<your-namespace>/overview/…**. Note     |
-| this namespace as it will be used throughout the lab tasks that follow.                      |
-|                                                                                              |
-| .. note::                                                                                    |
-|    *Administratively, there are other ways to find namespaces. Due to access and permission* |
-|    *restrictions for this particular lab, those menus are not available.*                    |
-+----------------------------------------------------------------------------------------------+
-| |intro052|                                                                                   |
-|                                                                                              |
-| |intro053|                                                                                   |
-+----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
 | **Beginning of Lab:**  You are now ready to begin the lab, Enjoy! Ask questions as needed.   |

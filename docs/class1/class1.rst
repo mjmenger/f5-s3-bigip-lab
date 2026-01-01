@@ -8,7 +8,7 @@ In this lab, attendees will be introduced to using F5 BIG-IP as an intelligent A
 for S3-compatible object storage.  
 
 Objectives:
-----------
+-----------
 
 - Implement high availability and efficient load distribution for an S3 cluster
 - Enforce fine-grained policy controls
