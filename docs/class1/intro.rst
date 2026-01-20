@@ -42,7 +42,7 @@ Accessing UDF (F5 Unified Demo Framework)
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
-| Attendees will be prompted to enter their UDF account, password and complete MFA as shown.   |
+| Attendees may be prompted to enter their UDF account, password and complete MFA as shown.   |
 | MFA must be completed by either selecting **Send Push** or **Enter Code**.                   |
 |                                                                                              |
 | .. note::                                                                                    |
