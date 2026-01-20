@@ -285,7 +285,7 @@ The following steps will test and validate the Web Application Firewall, review 
    :width: 800px
 .. |lab003| image:: _static/lab1-003.png
    :width: 800px
-.. |lab004| image:: _static/lab1-004.png
+.. |lab004| image:: _static/image_001_WARP_ui.png
    :width: 800px
 .. |lab005| image:: _static/lab1-005.png
    :width: 800px
