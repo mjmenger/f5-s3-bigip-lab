@@ -18,7 +18,7 @@ UDF lab environment.
 Task 1: Review the Lab Environment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-These values align with the lab README and UDF topology. Keep them unchanged unless your
+These values align with the UDF topology. Keep them unchanged unless your
 environment differs.
 
 ======================== ========================================= ==================================
@@ -28,7 +28,7 @@ MinIO Cluster‑1 (direct) Baseline test without BIG‑IP              WARP para
 ------------------------ ----------------------------------------- ----------------------------------
 BIG‑IP VIP for Cluster‑1 Single front door with LTM load           WARP parameters: 10.1.40.160:9000
 ------------------------ ----------------------------------------- ----------------------------------
-MinIO Console            Review node-level metrics and utilization UDF → Cluster1-Node1 → Access → UI
+MinIO Console            Review node-level metrics                 UDF → Cluster1-Node1 → Access → UI
 ------------------------ ----------------------------------------- ----------------------------------
 BIG‑IP TMUI              Verify pools/members & methods            UDF → BIG‑IP → Access → TMUI
 ======================== ========================================= ==================================
@@ -42,13 +42,15 @@ The following steps will validate access to the application via web browser, rev
 Performance Monitoring dashboard, and gather request details.
 
 +---------------------------------------------------------------------------------------------------------------+
-| 1. Open MinIO WARP (UDF → Components → Traffic‑Gen → Access → Firefox).                                       |
+| 1. Open MinIO WARP (UDF → Components → Traffic‑Gen → Access → Firefox).  The credentials are under lab        |
+|    Documentation tab (admin/admin).  If presented with Firefox "Restoring Pages" message, choose "Restore     |
+|    Session" button.   As well, permit the pop-up to allow access to clipboard.                                |
 |                                                                                                               |
 | 2. Select the cluster‑1 profile.                                                                              |
 |                                                                                                               |
-| 3. Select all buckets.                                                                                        |
+| 3. Select all 3 buckets, when selected for use they will appear in bright orange.                             |
 |                                                                                                               |
-| 4. Set Duration to 3 minutes and Concurrency to 20 threads.                                                   |
+| 4. Set Duration to 3 minutes and Concurrency to 20 threads. Conncurrency refers to parallel S3 transactions.  |
 |                                                                                                               |
 | 5. In WARP Parameters, set Endpoint to 10.1.10.100:9000.                                                      |
 |                                                                                                               |
