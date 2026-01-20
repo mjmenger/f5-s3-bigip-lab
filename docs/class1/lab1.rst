@@ -75,7 +75,7 @@ Performance Monitoring dashboard, and gather request details.
 +---------------------------------------------------------------------------------------------------------------+
 | 9. Click on the arrow next to time to first byte, in the lower right of the screen.                           | 
 |                                                                                                               |
-| 8. Observe that once the charts populate, only traffic will be registered with only the first AIStor,         |
+| 10. Observe that once the charts populate, only traffic will be registered with only the first AIStor,        |
 |    at address 10.1.10.100 port 9000.  This traffic will task one server, creating a hot spot of load.         |
 +---------------------------------------------------------------------------------------------------------------+
 | |lab017|                                                                                                      |
