@@ -58,18 +58,29 @@ Performance Monitoring dashboard, and gather request details.
 +---------------------------------------------------------------------------------------------------------------+
 | |lab014|                                                                                                      |
 |                                                                                                               |
-| |lab015|                                                                                                      |
+|                                                                                                               |
 +---------------------------------------------------------------------------------------------------------------+
 
 +---------------------------------------------------------------------------------------------------------------+
-| 3. Returning to the F5 Distributed Cloud Console, use the left-hand navigation to navigate to Multi-Cloud App |
-|    Connect section and click on **Performance**                                                               |
+| 7. Open MinIO cluster‑1 Console (UDF → Cluster1‑Node1 → Access → UI). Login: minioadmin / minioadmin          | 
 |                                                                                                               |
-| 4. Scroll to the **Load Balancers** section of the page and click the link for your respective load balancer. |
+| 8. Observe that there are 4 AIStor servers spread across 2 clusters, however data charts require normally     |
+|    30 minutes or more to popluate so expect no traffic on the right-hand chart.                               |
 +---------------------------------------------------------------------------------------------------------------+
 | |lab016|                                                                                                      |
 |                                                                                                               |
+|                                                                                                               |
++---------------------------------------------------------------------------------------------------------------+
+
++---------------------------------------------------------------------------------------------------------------+
+| 9. Click on the arrow next to time to first byte, in the lower right of the screen.                           | 
+|                                                                                                               |
+| 8. Observe that once the charts populate, only traffic will be registered with only the first AIStor,         |
+|    at address 10.1.10.100 port 9000.  This traffic will task one server, creating a hot spot of load.         |
++---------------------------------------------------------------------------------------------------------------+
 | |lab017|                                                                                                      |
+|                                                                                                               |
+|                                                                                                               |
 +---------------------------------------------------------------------------------------------------------------+
 
 +---------------------------------------------------------------------------------------------------------------+
@@ -195,7 +206,7 @@ Monitoring dashboard, and gather security event details.
 +---------------------------------------------------------------------------------------------------------------+
 | |lab016|                                                                                                      |
 |                                                                                                               |
-| |lab017|                                                                                                      |
+|                                                                                                               |
 +---------------------------------------------------------------------------------------------------------------+
 
 +---------------------------------------------------------------------------------------------------------------+
@@ -309,9 +320,9 @@ The following steps will test and validate the Web Application Firewall, review 
    :width: 800px
 .. |lab015| image:: _static/lab1-015.png
    :width: 800px
-.. |lab016| image:: _static/lab1-016.png
+.. |lab016| image:: _static/a_aistor_traffic_totals.png
    :width: 800px
-.. |lab017| image:: _static/lab1-017.png
+.. |lab017| image:: _static/a_aistor_traffic_per_aistor.png
    :width: 800px
 .. |lab018| image:: _static/lab1-018.png
    :width: 800px
