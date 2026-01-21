@@ -151,7 +151,7 @@ Task 4: Scale out easily: add the 4th MinIO AIStor node to the pool
 | 3. Set **Service Port** to 9000 and click **Finished**                                                        |                                             
 |                                                                                                               | 
 |  .. note::                                                                                                    |
-|      * health checks for the new member will drive the LED from blue to green (ready) shortly *               |
+|      health checks for the new member will drive the LED from blue to green (ready) shortly                   |
 +---------------------------------------------------------------------------------------------------------------+
 | |lab042|                                                                                                      |
 |                                                                                                               |
@@ -161,8 +161,8 @@ Task 4: Scale out easily: add the 4th MinIO AIStor node to the pool
 +---------------------------------------------------------------------------------------------------------------+
 | 4. Re-run the WARP workload targetting the BIG-IP Virtual IP (VIP 10.1.40.160:9000)                           |                                                                                                  
 |                                                                                                               | 
-|  .. Expectation::                                                                                             |
-|      * The 4th AIStor node begins processing traffic **immediately**.  All nodes now share load *             |
+|  .. note::                                                                                                    |
+|      The 4th AIStor node begins processing traffic **immediately**.  All nodes now share load                 |
 +---------------------------------------------------------------------------------------------------------------+
 | |lab043|                                                                                                      |
 |                                                                                                               |
