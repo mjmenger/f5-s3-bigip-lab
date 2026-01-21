@@ -2,17 +2,22 @@
 Lab 2: Fine-grained Policy Enforcement & Bucket Migration
 ====================================
 
-Your company is about to launch a new application that resides in a public cloud environment.  To avoid having to learn 
-yet another public cloud environment for publishing an application, you will use F5 Distributed Cloud for publishing the 
-application.  You can do that by deploying a CE node in your public cloud environment, which will allow the data plane to 
-run in that environment while having the configuration and observability of the Distributed Cloud console.  In this lab, 
-you will configure the deployment in Distributed Cloud where application traffic will pass through Distributed Cloud to 
-your application running in the public cloud.  You will use a CE node that has already been deployed in the public cloud
-environment. In this example, the application does not have Internet connectivity via the public cloud.
+AI training and fine-tuning workloads generate highly variable request rates. Spikes in requests per second
+(RPS) can saturate storage clusters, disrupting other workloads and risking missed SLAs.
+At the same time, data migrations are common — moving buckets between clusters or rebalancing capacity.
+Migrations need to be surgical and transparent, without requiring client reconfiguration.
 
-Your design includes the following workflow **Client -> RE -> CE -> Protected application resource**.  Let's get started!
+**Technical Problem**
 
-.. image:: _static/lab2-appworld2025-topology-diagram.png
+- No central control: Clients flood nodes with requests, overwhelming clusters.
+- Data migrations require manual endpoint changes or application rewrites.
+- Lack of policy enforcement leads to instability and risk during transitions.
+
+**Solution wiht BIG-IP Local Traffic Manager (LTM)**
+
+- **iRules** can be applied to cap connections, control RPS, and enforce thresholds at the dataplane.
+- **Local Traffic Policies** redirect traffic based on bucket or host headers.
+- **Outcome**: Clusters are stabilized under load, migrations are executed seamlessly, and clients keep using the same VIP.
 
 
 Task 1. Create Private Origin Pool
