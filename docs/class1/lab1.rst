@@ -154,7 +154,7 @@ Task 4: Scale out easily: add the 4th MinIO AIStor node to the pool
 | 1. In BIG‑IP TMUI: Local Traffic → Pools → Cluster‑1 → Members.                                               |
 |                                                                                                               |
 +---------------------------------------------------------------------------------------------------------------+
-| |lab0|                                                                                                      |
+| |lab041|                                                                                                        |
 |                                                                                                               |
 |                                                                                                               |
 +---------------------------------------------------------------------------------------------------------------+
@@ -406,7 +406,7 @@ The following steps will test and validate the Web Application Firewall, review 
    :width: 800px
 .. |lab040| image:: _static/lab1-040.png
    :width: 800px
-.. |lab041| image:: _static/lab1-041.png
+.. |lab041| image:: _static/a_example_of_reusing_old_guide_screenshot.png
    :width: 800px
 .. |lab042| image:: _static/lab1-042.png
    :width: 800px
