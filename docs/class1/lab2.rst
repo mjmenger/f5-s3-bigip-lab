@@ -21,7 +21,7 @@ Migrations need to be surgical and transparent, without requiring client reconfi
 
 
 Task 1. Review the Lab Environment
-----------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 These values align with the UDF topology. Keep them unchanged unless your
 environment differs.
@@ -49,14 +49,14 @@ of the excessive load being received.
 
 +---------------------------------------------------------------------------------------------------------------+
 | 1. Open MinIO WARP (UDF → Components → Traffic‑Gen → Access → Firefox).                                       |
-|   .                                |                                                                          |
+|                                                                                                               |
 | 2. Set the load target to Endpoint: 10.1.40.160:9000 (BIG-IP VIP for Cluster-1).                              |
 |                                                                                                               |
 | 3. Duration: 5 minutes, Concurrency 50 threads.                                                               |
 |                                                                                                               |
 | 4. Click Run Benchmark.                                                                                       |
 +---------------------------------------------------------------------------------------------------------------+
-| |lab014|                                                                                                      |
+| |lab314|                                                                                                      |
 |                                                                                                               |
 |                                                                                                               |
 +---------------------------------------------------------------------------------------------------------------+
@@ -309,7 +309,7 @@ in AWS via the connection to the CE node in AWS.
    :width: 800px 
 .. |lab313| image:: _static/lab3-appworld2025-waf-block-message.png
    :width: 800px 
-.. |lab314| image:: _static/lab2-private-ce-pool.png
+.. |lab314| image:: _static/b_warp_parameters_lab2.png
    :width: 800px
 .. |labend| image:: _static/labend.png
    :width: 800px
