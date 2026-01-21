@@ -107,6 +107,8 @@ Task 3: Baseline: Steer (proxy) the Same Workload through BIG-IP
 | 4. Click Run Benchmark                                                                                        |
 |                                                                                                               |
 | 5. Log into BIG-IP TMU: Local Traffic → Pools → Cluster‑1.  Confirm 3 pool members are present initially      |
+|                                                                                                               |
+|                                                                                                               |
 | .. note::                                                                                                     |
 |    *As you have not run many requests, summary analytics may not be available in the dashboard view yet.*     |
 +---------------------------------------------------------------------------------------------------------------+
