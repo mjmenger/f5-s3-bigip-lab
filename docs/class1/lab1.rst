@@ -110,7 +110,7 @@ Task 3: Baseline: Steer (proxy) the Same Workload through BIG-IP
 |    Click both Members and Statistics tabs.                                                                    |
 |                                                                                                               |
 | .. note::                                                                                                     |
-|      *due to short run durations, summary analytics may not have appeared in the AIStordashboard view yet.*   |
+|      *due to short run durations, summary analytics may not have appeared in the AIStor dashboard view yet.*  |
 +---------------------------------------------------------------------------------------------------------------+
 | |lab018|                                                                                                      |
 |                                                                                                               |
@@ -118,13 +118,9 @@ Task 3: Baseline: Steer (proxy) the Same Workload through BIG-IP
 +---------------------------------------------------------------------------------------------------------------+
 
 +---------------------------------------------------------------------------------------------------------------+
-| 7. Click the **Requests** link to see detailed information about individual requests.                         |
+| 6. Confirm the WARP S3 load generator has run to completions, traffic settings can be seen below.             |
 |                                                                                                               |
-| 8. Note the **Chart** shows a graphical representation of all of the response codes for the selected time     |
-|    frame.                                                                                                     |
-|                                                                                                               |
-| .. note::                                                                                                     |
-|    *This data can be filtered to quickly narrow in on points of interest.*                                    |
+|                                   |                                                                           |
 +---------------------------------------------------------------------------------------------------------------+
 | |lab020|                                                                                                      |
 |                                                                                                               |
