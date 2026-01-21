@@ -127,6 +127,13 @@ Task 3: Baseline: Steer (proxy) the Same Workload through BIG-IP
 | |lab021|                                                                                                      |
 +---------------------------------------------------------------------------------------------------------------+
 
+**Expected outcome**: Traffic is distributed across the **three** nodes behind the VIP.
+
+**Load‑balancing method**: This pool is configured for Least Connections, recommended for S3‑style
+workloads to reduce request skew.
+
+
+
 +---------------------------------------------------------------------------------------------------------------+
 | 9. Click the **Hide Chart** link to free up space in the browser window.                                      |
 |                                                                                                               |
