@@ -204,6 +204,56 @@ dashboards powered by Grafana.   We will verify the load balancing method and po
 |                                                                                                               |
 +---------------------------------------------------------------------------------------------------------------+
 
+The charts indicate an even distribution for MinIO AIStor nodes, hot spots have been successfully avoided.
+
+
+Validation
+~~~~~~~~~~
+
+MinIO AIStor Console (Main Screen → Data -> arrow next to Time to First Byte): when populated with data points
+shows very close to even, per‑node traffic once proxied via VIP (some variability is expected / OK).
+
+BIG‑IP Pool Stats: show all 4 members up with active connections.
+
+End‑user impact: Client endpoint unchanged; backend scaling is transparent.
+
+Troubleshooting
+~~~~~~~~~~~~~~~
+
+WARP can't connect
+ -> Re‑check endpoint (10.1.10.100:9000 direct vs 10.1.40.160:9000 VIP).
+ -> Ensure the http/https scheme matches your setup (WARP must use the correct protocol).
+
+MinIO AIStore UI Metrics don't update
+ -> the page isn't real‑time, hit "Refresh" with last 4 hours timerange, towards end of lab to see data
+
+A pool member is down (red)
+ -> Verify the MinIO node process.
+ -> Review the pool's Monitor and node address/port.
+
+Skew remains after adding cl1‑nd4
+ -> Confirm the new member is enabled and passing its monitor.
+ -> Ensure Least Connections is applied (not Round Robin).
+
+
+Clean-Up (Optional)
+~~~~~~~~~~~~~~~~~~~
+
+Stop any running WARP tests.
+
+If you temporarily disabled/enabled members, restore their original state.
+
+Leave Cluster‑1 with 4 active members for Labs 2 and 3.
+
+
+What You Learned - Value of BIG-IP LTM and AIStor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Decoupling** Clients connect to one VIP; storage topology can evolve freely.
+**Efficiency** Least Connections smooths throughput and reduces hotspots.
+**Elasticity** Scale by adding/removing pool members without client changes.
+**Operational simplicity** Traffic engineering lives at the dataplane, not in every client.
+
 +---------------------------------------------------------------------------------------------------------------+
 | 1. Following **Task 2**, you should have the **Multi-Cloud App Connect** navigation panel on the left of your |
 |    console.  If for some reason you do not see the **Multi-Cloud App Connect** navigation panel, use the      |
