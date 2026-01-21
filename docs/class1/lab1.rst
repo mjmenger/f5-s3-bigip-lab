@@ -343,9 +343,9 @@ The following steps will test and validate the Web Application Firewall, review 
    :width: 800px
 .. |lab019| image:: _static/a_bigip-pool-statistics.png
    :width: 800px
-.. |lab020| image:: _static/lab1-020.png
+.. |lab020| image:: _static/a_aistor_traffic_chart.png
    :width: 800px
-.. |lab021| image:: _static/lab1-021.png
+.. |lab021| image:: _static/a_warp_setup.png
    :width: 800px
 .. |lab022| image:: _static/lab1-022.png
    :width: 800px
