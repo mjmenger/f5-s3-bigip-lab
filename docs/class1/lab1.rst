@@ -100,12 +100,13 @@ Task 3: Baseline: Steer (proxy) the Same Workload through BIG-IP
 +---------------------------------------------------------------------------------------------------------------+
 | 1. In WARP, switch target to the BIG‑IP VIP profile BigIP‑cluster‑1.                                          |
 |                                                                                                               |
-| 2. Set Duration: 5 minutes (300 seconds), Concurrency: 20 threads.                                                                                              |
+| 2. Set Duration: 5 minutes (300 seconds), Concurrency: 20 threads.                                            |
 |                                                                                                               |
-| 3. In WARP Parameters, set Endpoint to 10.1.40.160:9000.                                       |
+| 3. In WARP Parameters, set Endpoint to 10.1.40.160:9000.                                                      |
 |                                                                                                               |
-| 4. Set Duration: 5 minutes, Concurrency: 20 threads.                                                                                              |
+| 4. Click Run Benchmark                                                                                        |
 |                                                                                                               |
+| 5. Log into BIG-IP TMU: Local Traffic → Pools → Cluster‑1.  Confirm 3 pool members are present initially      |
 | .. note::                                                                                                     |
 |    *As you have not run many requests, summary analytics may not be available in the dashboard view yet.*     |
 +---------------------------------------------------------------------------------------------------------------+
