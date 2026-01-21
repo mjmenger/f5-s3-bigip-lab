@@ -110,7 +110,7 @@ Task 3: Baseline: Steer (proxy) the Same Workload through BIG-IP
 |                                                                                                               |
 |                                                                                                               |
 | .. note::                                                                                                     |
-|    *As you have not run many requests, summary analytics may not be available in the dashboard view yet.*     |
+|    *As you have not run long durations, summary analytics may have appeared in the AIStordashboard view yet.* |
 +---------------------------------------------------------------------------------------------------------------+
 | |lab018|                                                                                                      |
 |                                                                                                               |
