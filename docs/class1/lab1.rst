@@ -86,7 +86,8 @@ Performance Monitoring dashboard, and gather request details.
 
 
 Why this matters:  Clients that target a single node are brittleutilization is uneven and scalability suffers. 
-~~~~~~~~~~~~~~~~
+
+
 
 
 
