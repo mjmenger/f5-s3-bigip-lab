@@ -259,29 +259,13 @@ What You Learned - Value of BIG-IP LTM and AIStor
 
 
 
-Task 5.  Scale out: add the 4th MinIO node to the pool
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The following steps will test and validate the Web Application Firewall, review the Security
-
-Task 6.   Verify the load‑balancing method & pool health
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The following steps will test and validate the Web Application Firewall, review the Security
-
-
-Task 7.   Validation with MinIO Console 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The following steps will test and validate the Web Application Firewall, review the Security
-
 +---------------------------------------------------------------------------------------------------------------+
-| **End of Lab 1:**  This concludes Lab 1.  In this lab you created an origin pool to connect to the            |
-| application, you then created a load balancer and associated the origin pool to the load balancer.  This      |
-| allowed the application to be advertised via the F5 Distributed Cloud Global Network.  The Distributed Cloud  |
-| Console was then used to review telemetry data gathered for the application.  Next an Application Firewall    |
-| policy was assigned to protect the application.  Finally a sample attack was run against the application and  |
-| the security event data was reviewed within the Distributed Cloud Console.                                    |
+| **End of Lab 1:**  This concludes Lab 1.  In this lab you ran high rate S3 loads against a single MinIO       |
+| AIStor server, leaving other AIStor instances unused.  You then adjusted the load generator to use a virtual  |
+| server with a virtual IP address on the F5 BIG-IP.   An origin pool corresponding to three AIStor instances   |
+| allow traffic to be spread, per the least connections approach, to all healthy nodes.   A fourth AIStor       |
+| instance was added to the pool, exercising all nodes equally and not requiring any client side adjustments,   |
+| a major benefit in scenarios with hundreds or possibly thousands of clients.                                  |
 +---------------------------------------------------------------------------------------------------------------+
 | |labend|                                                                                                      |
 +---------------------------------------------------------------------------------------------------------------+
