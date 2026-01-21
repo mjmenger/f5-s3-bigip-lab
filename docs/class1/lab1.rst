@@ -84,8 +84,8 @@ Performance Monitoring dashboard, and gather request details.
 +---------------------------------------------------------------------------------------------------------------+
 
 
-          ## Why this matters:  Clients that target a single node are brittle,
-            utilizatin is uneven and scalability suffers. 
+          Why this matters:  Clients that target a single node are brittle,
+          ~~~~~~~~~~~~~~~~            utilization is uneven and scalability suffers. 
 
 
 
