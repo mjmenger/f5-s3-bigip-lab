@@ -41,6 +41,51 @@ BIG‑IP TMUI              Attach iRules, configure policies         UDF → BIG
 ======================== ========================================= ==================================
       
 
+Task 2: Rate Limiting S3 Traffic with iRules
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following steps will create a massive spike in sudden S3 activity, and an approach to throttle down a specific source
+of the excessive load being received.
+
++---------------------------------------------------------------------------------------------------------------+
+| 1. Open MinIO WARP (UDF → Components → Traffic‑Gen → Access → Firefox).                                       |
+|   .                                |                                                                          |
+| 2. Set the load target to Endpoint: 10.1.40.160:9000 (BIG-IP VIP for Cluster-1).                              |
+|                                                                                                               |
+| 3. Duration: 5 minutes, Concurrency 50 threads.                                                               |
+|                                                                                                               |
+| 4. Click Run Benchmark.                                                                                       |
++---------------------------------------------------------------------------------------------------------------+
+| |lab014|                                                                                                      |
+|                                                                                                               |
+|                                                                                                               |
++---------------------------------------------------------------------------------------------------------------+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following steps will validate access to the application via web browser, review the
+Performance Monitoring dashboard, and gather request details.
+
++---------------------------------------------------------------------------------------------------------------+
+| 1. Open MinIO WARP (UDF → Components → Traffic‑Gen → Access → Firefox).  The credentials are under lab        |
+|    Documentation tab (admin/admin).  If presented with Firefox "Restoring Pages" message, choose "Restore     |
+|    Session" button.   As well, permit the pop-up to allow access to clipboard.                                |
+|                                                                                                               |
+| 2. Select the cluster‑1 profile.                                                                              |
+|                                                                                                               |
+| 3. Select all 3 buckets, when selected for use they will appear in bright orange.                             |
+|                                                                                                               |
+| 4. Set Duration to 3 minutes and Concurrency to 20 threads. Conncurrency refers to parallel S3 transactions.  |
+|                                                                                                               |
+| 5. In WARP Parameters, set Endpoint to 10.1.10.100:9000.                                                      |
+|                                                                                                               |
+| 6. Click Run Benchmark.                                                                                       |
++---------------------------------------------------------------------------------------------------------------+
+| |lab014|                                                                                                      |
+|                                                                                                               |
+|                                                                                                               |
++---------------------------------------------------------------------------------------------------------------+
+
 
 
 
