@@ -191,16 +191,16 @@ dashboards powered by Grafana.   We will verify the load balancing method and po
 | 4. Use the AST tool (to review the Dashboards) UDF -> AST -> Access -> Grafana.                               |
 |    Login as admin / admin, when prompted to change password retain the value as admin                         |
 |                                                                                                               |
-| 5. In AST: Dashboards → BigIP - Device → Device Pools look at the key metrics, such as Active Pool            |
+| 5. In **AST: Dashboards → BigIP - Device → Device Pools** look at the key metrics, such as Active Pool        |
 |            Connections.   For "Pool" in top menu, adjust to "Cluster-1" and examine last 15 minutes.          |
 |                                                                                                               |
 | 6.  Click on the "3 dots" menu → View to see the full stats.    Use the "Refresh" button often in top right.  |
 |                                                                                                               |
 |                                                                                                               |
-| .. note::                                                                                                     |
-|      *due to short run durations, summary analytics may not have appeared in the AIStor dashboard view yet.*  |
+|                                                                                                               |
+|                                                                                                               |
 +---------------------------------------------------------------------------------------------------------------+
-| |lab018|                                                                                                      |
+| |lab045|                                                                                                      |
 |                                                                                                               |
 +---------------------------------------------------------------------------------------------------------------+
 
@@ -449,6 +449,8 @@ The following steps will test and validate the Web Application Firewall, review 
 .. |lab043| image:: _static/a_data_to_4th_node_big_ip.png
    :width: 800px
 .. |lab044| image:: _static/a_aistor_chart_showing_data.png
+   :width: 800px
+.. |lab045| image:: _static/a_ast_overview_charts.png
    :width: 800px
 .. |labend| image:: _static/labend.png
    :width: 800px
