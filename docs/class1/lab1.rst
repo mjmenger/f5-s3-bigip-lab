@@ -82,6 +82,9 @@ Performance Monitoring dashboard, and gather request details.
 |                                                                                                               |
 |                                                                                                               |
 +---------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
 |  Why this matters:  Clients that target a single node are brittle, utilizatin is uneven and scalability       |                                                                                              |
 |  suffers.                                                                                                     |
 |                                                                                                               |
@@ -334,7 +337,7 @@ The following steps will test and validate the Web Application Firewall, review 
    :width: 800px
 .. |lab016| image:: _static/a_aistor_traffic_totals.png
    :width: 800px
-.. |lab017| image:: _static/a_aistor_traffic_per_aistor.png
+.. |lab017| image:: _static/a_aistor_traffic_per_aistor2.png
    :width: 800px
 .. |lab018| image:: _static/lab1-018.png
    :width: 800px
