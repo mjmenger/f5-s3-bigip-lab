@@ -20,8 +20,29 @@ Migrations need to be surgical and transparent, without requiring client reconfi
 - **Outcome**: Clusters are stabilized under load, migrations are executed seamlessly, and clients keep using the same VIP.
 
 
-Task 1. Create Private Origin Pool
+Task 1. Review the Lab Environment
 ----------------------------------
+
+These values align with the UDF topology. Keep them unchanged unless your
+environment differs.
+
+======================== ========================================= ==================================
+Component                Purpose                                   Where to access
+======================== ========================================= ==================================
+BIG‑IP VIP for Cluster‑1 Single front door for MinIO cluster       WARP parameters: 10.1.40.160:9000
+------------------------ ----------------------------------------- ----------------------------------
+Cluster‑1 MinIO AIStor   Primary storage cluster                   10.1.10.100-103:9000
+------------------------ ----------------------------------------- ----------------------------------
+Cluster‑2 MinIO AIStor   Migration target for bucket A             10.1.20.100:9000
+------------------------ ----------------------------------------- ----------------------------------
+WARP GUI                 Generate high-RPS S3 workloads            UDF → Traffic-Gen → Firefox
+------------------------ ----------------------------------------- ----------------------------------
+BIG‑IP TMUI              Attach iRules, configure policies         UDF → BIG‑IP → Access → TMUI
+======================== ========================================= ==================================
+      
+
+
+
 
 In Lab #1 we created an origin pool that was accessible via the Public Internet.
 This lab exercise will create an origin pool that is not accessible via the Public Internet; in this case the application is local to the deployed
