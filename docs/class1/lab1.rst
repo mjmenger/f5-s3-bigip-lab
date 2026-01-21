@@ -158,6 +158,18 @@ Task 4: Scale out easily: add the 4th MinIO AIStor node to the pool
 |                                                                                                               |
 +---------------------------------------------------------------------------------------------------------------+
 
++---------------------------------------------------------------------------------------------------------------+
+| 4. Re-run the WARP workload targetting the BIG-IP Virtual IP (VIP 10.1.40.160:9000)                           |                                                                                                  
+|                                                                                                               | 
+|  .. Expectation::                                                                                             |
+|      * The 4th AIStor node begins processing traffic **immediately**.  All nodes now share load *             |
++---------------------------------------------------------------------------------------------------------------+
+| |lab043|                                                                                                      |
+|                                                                                                               |
+| |lab044|                                                                                                      |
+|                                                                                                               |
++---------------------------------------------------------------------------------------------------------------+
+
 
 
 
@@ -407,7 +419,9 @@ The following steps will test and validate the Web Application Firewall, review 
    :width: 800px
 .. |lab042| image:: _static/a_new_pool_member.png
    :width: 800px
-.. |lab043| image:: _static/lab1-043.png
+.. |lab043| image:: _static/a_data_to_4th_node_big_ip.png
+   :width: 800px
+.. |lab044| image:: _static/a_aistor_chart_showing_data.png
    :width: 800px
 .. |labend| image:: _static/labend.png
    :width: 800px
