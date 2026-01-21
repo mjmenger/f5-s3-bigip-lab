@@ -334,7 +334,7 @@ The following steps will test and validate the Web Application Firewall, review 
    :width: 800px
 .. |lab016| image:: _static/a_aistor_traffic_totals.png
    :width: 800px
-.. |lab017| image:: _static/a_aistor_traffic_per_aistor2.png
+.. |lab017| image:: _static/a_aistor_traffic_per_aistor.png
    :width: 800px
 .. |lab018| image:: _static/lab1-018.png
    :width: 800px
