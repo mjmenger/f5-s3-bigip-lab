@@ -191,10 +191,10 @@ dashboards powered by Grafana.   We will verify the load balancing method and po
 | 4. Use the AST tool (to review the Dashboards) UDF -> AST -> Access -> Grafana.                               |
 |    Login as admin / admin, when prompted to change password simply retain the value as admin                  |
 |                                                                                                               |
-| 5. In AST,  Dashboards → BigIP - Device → Device Pools look at the key metrics, such as Active Pool           |
+| 5. In AST, choose Dashboards - BigIP - Device - Device Pools look at the key metrics, such as Active Pool     |
 |            Connections.   For "Pool" in top menu, adjust to "Cluster-1" and examine last 15 minutes.          |
 |                                                                                                               |
-| 6. Click on the "3 dots" menu → View on any graphical widget to see the full panel.  Click "Refresh" often    |
+| 6. Click on the "3 dots" menu → View on any graphical widget to see the full panel.  Click "Refresh" often.   |
 |                                                                                                               |
 |                                                                                                               |
 |                                                                                                               |
