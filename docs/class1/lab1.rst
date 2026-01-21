@@ -171,11 +171,38 @@ Task 4: Scale out easily: add the 4th MinIO AIStor node to the pool
 +---------------------------------------------------------------------------------------------------------------+
 
 
+**Key Takeaway** There were no client changes and Applications still continue to talk to the same VIP;
+topology changes are absorbed by *BIG‑IP* at the dataplane.
 
 
-The following steps will guide you through adding a Web Application Firewall (WAF) Policy.
+Task 5:  Verify the load‑balancing method & pool health
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-These steps will apply a preconfigured WAF policy to the load balancer created in Task 1.
+The following steps will guide you through the rich, visual metrics presented for BIG-IP through the AST
+dashboards powered by Grafana.   We will verify the load balancing method and pool health.
+
++---------------------------------------------------------------------------------------------------------------+
+| 1. In BIG‑IP TMUI: Local Traffic → Pools → Cluster‑1.                                                         |
+|                                                                                                               |
+| 2. Confirm Load Balancing Method: Least Connections.                                                          |
+|                                                                                                               |
+| 3. Check Members tab:  All members green (up) with active connections.                                        |
+|                                                                                                               |
+| 4. Use the AST tool (to review the Dashboards) UDF -> AST -> Access -> Grafana.                               |
+|    Login as admin / admin, when prompted to change password retain the value as admin                         |
+|                                                                                                               |
+| 5. In AST: Dashboards → BigIP - Device → Device Pools look at the key metrics, such as Active Pool            |
+|            Connections.   For "Pool" in top menu, adjust to "Cluster-1" and examine last 15 minutes.          |
+|                                                                                                               |
+| 6.  Click on the "3 dots" menu → View to see the full stats.    Use the "Refresh" button often in top right.  |
+|                                                                                                               |
+|                                                                                                               |
+| .. note::                                                                                                     |
+|      *due to short run durations, summary analytics may not have appeared in the AIStor dashboard view yet.*  |
++---------------------------------------------------------------------------------------------------------------+
+| |lab018|                                                                                                      |
+|                                                                                                               |
++---------------------------------------------------------------------------------------------------------------+
 
 +---------------------------------------------------------------------------------------------------------------+
 | 1. Following **Task 2**, you should have the **Multi-Cloud App Connect** navigation panel on the left of your |
