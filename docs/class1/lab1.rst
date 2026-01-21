@@ -133,33 +133,30 @@ Task 3: Baseline: Steer (proxy) the Same Workload through BIG-IP
 workloads to reduce request skew.
 
 
-
-+---------------------------------------------------------------------------------------------------------------+
-| 9. Click the **Hide Chart** link to free up space in the browser window.                                      |
-|                                                                                                               |
-| 10. Expand one of the individual requests to view additional details about that request.                      |
-|                                                                                                               |
-| 11. Note the **Duration** section.  This shows the latency for this specific request.  These values can be    |
-|     compared to the average latency data noted in step 6.                                                     |
-+---------------------------------------------------------------------------------------------------------------+
-| |lab022|                                                                                                      |
-|                                                                                                               |
-| |lab023|                                                                                                      |
-+---------------------------------------------------------------------------------------------------------------+
-
 Task 4: Scale out easily: add the 4th MinIO AIStor node to the pool
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +---------------------------------------------------------------------------------------------------------------+
-| 1. In BIG‑IP TMUI: Local Traffic → Pools → Cluster‑1 → Members.                                               |
+| 1. In BIG‑IP TMUI: Local Traffic → Pools → Cluster‑1 → Members.  Add a New member and choose Node List menu.  |
 |                                                                                                               |
 +---------------------------------------------------------------------------------------------------------------+
-| |lab041|                                                                                                        |
+| |lab041|                                                                                                      |
 |                                                                                                               |
 |                                                                                                               |
 +---------------------------------------------------------------------------------------------------------------+
 
-
++---------------------------------------------------------------------------------------------------------------+
+| 2. Click **Add.... -> Node List ->** select cl1-nd4                                                           |
+|                                                                                                               |
+| 3. Set **Service Port** to 9000 and click **Finished**                                                        |                                             
+|                                                                                                               | 
+|  .. note::                                                                                                    |
+|      * health checks for the new member will drive the LED from blue to green (ready) shortly *               |
++---------------------------------------------------------------------------------------------------------------+
+| |lab042|                                                                                                      |
+|                                                                                                               |
+|                                                                                                               |
++---------------------------------------------------------------------------------------------------------------+
 
 
 
@@ -406,9 +403,9 @@ The following steps will test and validate the Web Application Firewall, review 
    :width: 800px
 .. |lab040| image:: _static/lab1-040.png
    :width: 800px
-.. |lab041| image:: _static/a_example_of_reusing_old_guide_screenshot.png
+.. |lab041| image:: _static/a_update_pool_members_list.png
    :width: 800px
-.. |lab042| image:: _static/lab1-042.png
+.. |lab042| image:: _static/a_new_pool_member.png
    :width: 800px
 .. |lab043| image:: _static/lab1-043.png
    :width: 800px
