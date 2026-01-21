@@ -73,22 +73,34 @@ Performance Monitoring dashboard, and gather request details.
 +---------------------------------------------------------------------------------------------------------------+
 
 +---------------------------------------------------------------------------------------------------------------+
-| 9. Click on the arrow next to time to first byte, in the lower right of the screen.                           | 
+| 9.  Click on the arrow next to time to first byte, in the lower right of the screen.                          | 
 |                                                                                                               |
 | 10. Observe that once the charts populate, only traffic will be registered with only the first AIStor,        |
-|    at address 10.1.10.100 port 9000.  This traffic will task one server, creating a hot spot of load.         |
+|     at address 10.1.10.100 port 9000.  This traffic will task one server, creating a hot spot of load.        |
 +---------------------------------------------------------------------------------------------------------------+
 | |lab017|                                                                                                      |
 |                                                                                                               |
 |                                                                                                               |
 +---------------------------------------------------------------------------------------------------------------+
+|  Why this matters:  Clients that target a single node are brittle, utilizatin is uneven and scalability       |                                                                                              |
+|  suffers.                                                                                                     |
+|                                                                                                               |
++---------------------------------------------------------------------------------------------------------------+
+
+Task 3: Baseline: Steer (proxy) the Same Workload through BIG-IP
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
 
 +---------------------------------------------------------------------------------------------------------------+
-| 5. Change the viewable time period from Last 5 minutes (default) to **1 hour** by selecting the dropdown      |
-|    shown, click **Last 1 hour** then clicking **Apply**.                                                      |
+| 1. In WARP, switch target to the BIG‑IP VIP profile BigIP‑cluster‑1.                                          |
 |                                                                                                               |
-| 6. Note the **End to end Latency** tile.  This shows the average latency for all requests to this load        |
-|    balancer.                                                                                                  |
+| 2. Set Duration: 5 minutes (300 seconds), Concurrency: 20 threads.                                                                                              |
+|                                                                                                               |
+| 3. In WARP Parameters, set Endpoint to 10.1.40.160:9000.                                       |
+|                                                                                                               |
+| 4. Set Duration: 5 minutes, Concurrency: 20 threads.                                                                                              |
 |                                                                                                               |
 | .. note::                                                                                                     |
 |    *As you have not run many requests, summary analytics may not be available in the dashboard view yet.*     |
@@ -322,7 +334,7 @@ The following steps will test and validate the Web Application Firewall, review 
    :width: 800px
 .. |lab016| image:: _static/a_aistor_traffic_totals.png
    :width: 800px
-.. |lab017| image:: _static/a_aistor_traffic_per_aistor.png
+.. |lab017| image:: _static/a_aistor_traffic_per_aistor2.png
    :width: 800px
 .. |lab018| image:: _static/lab1-018.png
    :width: 800px
