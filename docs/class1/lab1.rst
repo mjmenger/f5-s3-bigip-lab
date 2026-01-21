@@ -250,138 +250,14 @@ What You Learned - Value of BIG-IP LTM and AIStor
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Decoupling** Clients connect to one VIP; storage topology can evolve freely.
+
 **Efficiency** Least Connections smooths throughput and reduces hotspots.
+
 **Elasticity** Scale by adding/removing pool members without client changes.
+
 **Operational simplicity** Traffic engineering lives at the dataplane, not in every client.
 
-+---------------------------------------------------------------------------------------------------------------+
-| 1. Following **Task 2**, you should have the **Multi-Cloud App Connect** navigation panel on the left of your |
-|    console.  If for some reason you do not see the **Multi-Cloud App Connect** navigation panel, use the      |
-|    **Select Workspace** dropdown at the top left, and click **Multi-Cloud App Connect** as shown in the       |
-|    *Introduction section, Task 2, Step 9*.                                                                    |
-|                                                                                                               |
-| 2. In the left-hand navigation expand **Manage** and click **Load Balancers > HTTP Load Balancers**           |
-|                                                                                                               |
-| 3. On the resulting page find the HTTP Load Balancer created in **Task 1** *(<namespace>-lb)*.  Click the     |
-|    ellipsis under Actions and select **Manage Configuration**.                                                |
-+---------------------------------------------------------------------------------------------------------------+
-| |lab028|                                                                                                      |
-|                                                                                                               |
-| |lab029|                                                                                                      |
-+---------------------------------------------------------------------------------------------------------------+
 
-+---------------------------------------------------------------------------------------------------------------+
-| 4. On the resulting page click **Edit Configuration**.                                                        |
-|                                                                                                               |
-| 5. Click **Web Application Firewall** in the left-hand navigation.                                            |  
-+---------------------------------------------------------------------------------------------------------------+
-| |lab030|                                                                                                      |
-|                                                                                                               |
-| |lab031|                                                                                                      |
-+---------------------------------------------------------------------------------------------------------------+
-
-
-+---------------------------------------------------------------------------------------------------------------+
-| 6. Under the **Web Application Firewall** section select **Enable** from the **Web Application Firewall**     |
-|     **(WAF)** dropdown.                                                                                       |
-|                                                                                                               |
-| 7. Select preconfigured the Web Application Firewall                                                          |
-|     *(shared/base-appfw)* from the **Enable** dropdown.                                                       |
-|                                                                                                               |
-| 8. Scroll to the bottom of the page and click **Save and Exit**                                               |
-+---------------------------------------------------------------------------------------------------------------+
-| |lab032|                                                                                                      |
-|                                                                                                               |
-| |lab033|                                                                                                      |
-+---------------------------------------------------------------------------------------------------------------+
-
-Task 4. Route the same workload through BIG‑IP VIP
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The following steps will test and validate the Web Application Firewall, review the Security
-
-Monitoring dashboard, and gather security event details.
-
-+---------------------------------------------------------------------------------------------------------------+
-| 1. Open another tab in your browser (Chrome shown), navigate to the newly configured Load Balancer            |
-|    configuration: **http://<namespace>.lab-sec.f5demos.com**, to confirm it is functional.                    |
-|                                                                                                               |
-| 2. Using some of the sample attacks below, add the URI path & variables to your application to generate       |
-|    security event data.                                                                                       |
-|                                                                                                               |
-|    * /?cmd=cat%20/etc/passwd                                                                                  |
-|    * /product?id=4%20OR%201=1                                                                                 |
-|    * /cart?search=aaa'><script>prompt('Please+enter+your+password');</script>                                 |
-|                                                                                                               |
-| .. note::                                                                                                     |
-|    *The web application firewall is blocking these requests to protect the application. The block page can*   |
-|    *be customized to provide additional information.*                                                         |
-+---------------------------------------------------------------------------------------------------------------+
-| |lab034|                                                                                                      |
-+---------------------------------------------------------------------------------------------------------------+
-
-+---------------------------------------------------------------------------------------------------------------+
-| 3. Returning to the F5 Distributed Cloud Console, use the left-hand navigation to navigate to Multi-Cloud App |
-|    Connect section and click on **Performance**                                                               |
-|                                                                                                               |
-| 4. Scroll to the **Load Balancers** section of the page and click the link for your respective load balancer. |
-+---------------------------------------------------------------------------------------------------------------+
-| |lab016|                                                                                                      |
-|                                                                                                               |
-|                                                                                                               |
-+---------------------------------------------------------------------------------------------------------------+
-
-+---------------------------------------------------------------------------------------------------------------+
-| 5. Click the **Performance Monitoring** dropdown at the top of the page and select **Security Monitoring**    |
-+---------------------------------------------------------------------------------------------------------------+
-| |lab035|                                                                                                      |
-+---------------------------------------------------------------------------------------------------------------+
-
-+---------------------------------------------------------------------------------------------------------------+
-| 6. From the **Dashboard** view, using the horizontal navigation, click **Security Analytics**.                |
-|                                                                                                               |
-| 7. Note the **Chart** shows a graphical representation of all of the response codes for the selected time     |
-|    frame.                                                                                                     |
-|                                                                                                               |
-| .. note::                                                                                                     |
-|    *If you lost your 1 Hour Filter, re-apply using Task 2: Step 5*                                            |
-+---------------------------------------------------------------------------------------------------------------+
-| |lab037|                                                                                                      |
-|                                                                                                               |
-| |lab038|                                                                                                      |
-+---------------------------------------------------------------------------------------------------------------+
-
-+---------------------------------------------------------------------------------------------------------------+
-| 8. Click the **Hide Chart** link to free up space in the browser window.                                      |
-|                                                                                                               |
-| 9. Expand your latest security event as shown.                                                                |
-|                                                                                                               |
-| 10. Note the summary detail provided in the **Information** link.  The **req_id** which is synonymous with    |
-|    **Support ID** (filterable) from the block page.                                                           |
-|                                                                                                               |
-| 11. Scroll to the bottom of the information screen to see specific signatures detected and actions taken      |
-|     during the security event.                                                                                |
-|                                                                                                               |
-| .. note::                                                                                                     |
-|    *Note that Requests have additional detail in JSON format*                                                 |
-+---------------------------------------------------------------------------------------------------------------+
-| |lab039|                                                                                                      |
-|                                                                                                               |
-| |lab040|                                                                                                      |
-|                                                                                                               |
-| |lab041|                                                                                                      |
-+---------------------------------------------------------------------------------------------------------------+
-
-+---------------------------------------------------------------------------------------------------------------+
-| 12. Scroll back to the top and on the right-hand size under Actions click "...". Now click "Explain with AI". |
-|     F5 Distributed Cloud AI Assistant will provide additional information about the security event including  |
-|     an analysis of the event, recommended follow-up actions, and more detection details should you need to    |
-|     investigate further.                                                                                      |
-+---------------------------------------------------------------------------------------------------------------+
-| |lab042|                                                                                                      |
-|                                                                                                               |
-| |lab043|                                                                                                      |
-+---------------------------------------------------------------------------------------------------------------+
 
 Task 5.  Scale out: add the 4th MinIO node to the pool
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
